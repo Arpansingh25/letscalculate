@@ -1,0 +1,231 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.calculator {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--btn-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+    max-height: 100vh; /* Ensure it doesn't overflow */
+    transition: background-color 0.3s ease;
+    animation: fadeInUp 0.5s ease-in-out;
+    overflow: hidden; /* Prevents internal scrolling */
+}
+
+.calculator-screen {
+    width: 95%;
+    height: 60px; /* Reduced height for smaller screens */
+    text-align: right;
+    padding: 10px;
+    font-size: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--screen-bg-color);
+    color: var(--screen-color);
+    margin-bottom: 10px; /* Adjusted margin */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calculator-buttons, .scientific-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px; /* Adjusted for smaller screens */
+}
+
+.btn {
+    height: 50px; /* Adjusted height */
+    font-size: 1.2rem; /* Adjusted font size */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+    transition: all 0.3s ease;
+}
+
+:root {
+    --bg-color: #f0f0f0;
+    --btn-bg-color: #ecf0f1;
+    --btn-color: #2c3e50;
+    --btn-hover-bg-color: #bdc3c7;
+    --btn-active-bg-color: #95a5a6;
+    --operator-bg-color: #e74c3c;
+    --operator-hover-bg-color: #c0392b;
+    --operator-active-bg-color: #a93226;
+    --equal-bg-color: #27ae60;
+    --equal-hover-bg-color: #229954;
+    --equal-active-bg-color: #1e8449;
+    --screen-bg-color: #34495e;
+    --screen-color: #ecf0f1;
+    --primary-color: #3498db;
+    --primary-hover-color: #2980b9;
+    --primary-active-color: #1c6691;
+}
+
+body.dark-mode {
+    --bg-color: #2c3e50;
+    --btn-bg-color: #34495e;
+    --btn-color: #ecf0f1;
+    --btn-hover-bg-color: #3a5068;
+    --btn-active-bg-color: #3e4d61;
+    --operator-bg-color: #e67e22;
+    --operator-hover-bg-color: #d35400;
+    --operator-active-bg-color: #a04000;
+    --equal-bg-color: #2980b9;
+    --equal-hover-bg-color: #21618c;
+    --equal-active-bg-color: #1b4f72;
+    --screen-bg-color: #ecf0f1;
+    --screen-color: #2c3e50;
+}
+
+.home-page {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.home-page h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.home-page p {
+    font-size: 1.2rem;
+    color: var(--btn-color);
+}
+
+.home-page button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.home-page button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+.home-page button:active {
+    background-color: var(--primary-active-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.theme-toggle button {
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+
+.theme-toggle button:active {
+    background-color: var(--btn-active-bg-color);
+}
+
+
+
+.btn:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+
+.btn:active {
+    background-color: var(--btn-active-bg-color);
+}
+
+.operator {
+    background-color: var(--operator-bg-color);
+    color: var(--screen-color);
+}
+
+.operator:hover {
+    background-color: var(--operator-hover-bg-color);
+}
+
+.operator:active {
+    background-color: var(--operator-active-bg-color);
+}
+
+.equal-sign {
+    background-color: var(--equal-bg-color);
+    color: var(--screen-color);
+    grid-column: span 2;
+}
+
+.equal-sign:hover {
+    background-color: var(--equal-hover-bg-color);
+}
+
+.equal-sign:active {
+    background-color: var(--equal-active-bg-color);
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.hidden {
+    display: none;
+}
+
+#scientific-mode-toggle {
+    grid-column: span 4;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+#scientific-mode-toggle:hover {
+    background-color: var(--primary-hover-color);
+}
+
+#scientific-mode-toggle:active {
+    background-color: var(--primary-active-color);
+}
+
+@media (max-width: 768px) {
+    .calculator {
+        width: 90%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
